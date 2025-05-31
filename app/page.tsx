@@ -142,7 +142,7 @@ export default function Home() {
             className="text-gray-600 max-w-xl mx-auto leading-relaxed"
             variants={fadeInUp}
           >
-            I'm currently open to freelance or full-time opportunities. Feel free
+            I am currently open to freelance or full-time opportunities. Feel free
             to reach out if you have any questions or want to collaborate!
           </motion.p>
           <motion.div className="mt-6" variants={fadeInUp}>
