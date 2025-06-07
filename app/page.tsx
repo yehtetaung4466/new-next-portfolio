@@ -186,7 +186,7 @@ export default function Home() {
         try {
           await navigator.clipboard.writeText(link);
           alert(`Phone number ${link} copied to clipboard`);
-        } catch (err) {
+        } catch {
           alert("Failed to copy phone number.");
         }
       };
