@@ -2,6 +2,10 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import profile from "../public/me.png";
+import phone from '../public/phone.png';
+import github from '../public/github.svg';
+import facebook from '../public/facebook.png';
+import gmail from '../public/gmail.webp';
 
 // Animation Variants
 const container = {
@@ -23,6 +27,7 @@ const fadeInUp = {
 };
 
 export default function Home() {
+  const links = ['https://github.com/yehtetaung4466', 'https://www.facebook.com/ye.htet.aung.546389', 'yehtet804p@gmail.com', '+959427900982'];
   return (
     <main className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-gray-100 text-gray-800 font-sans selection:bg-indigo-200">
       <div className="container mx-auto px-6 py-16">
@@ -145,15 +150,53 @@ export default function Home() {
             I am currently open to freelance or full-time opportunities. Feel free
             to reach out if you have any questions or want to collaborate!
           </motion.p>
-          <motion.div className="mt-6" variants={fadeInUp}>
-            <motion.a
-              href="mailto:yehtet804p@gmail.com"
-              className="inline-block bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-4 rounded-xl shadow-lg transition transform duration-300 hover:scale-105"
-              whileHover={{ scale: 1.05 }}
-            >
-              Send an Email
-            </motion.a>
+          <motion.div className="mt-6 flex justify-center items-center gap-6 flex-wrap" variants={fadeInUp}>
+            {links.map((link, index) => {
+              const isEmail = link.includes("@");
+              const isPhone = link.startsWith("+");
+
+              let href = link;
+              let icon = null;
+              let alt = "";
+
+              if (link.includes("github")) {
+                icon = github;
+                alt = "GitHub";
+              } else if (link.includes("facebook")) {
+                icon = facebook;
+                alt = "Facebook";
+              } else if (isEmail) {
+                href = `mailto:${link}`;
+                icon = gmail;
+                alt = "Gmail";
+              } else if (isPhone) {
+                href = `tel:${link}`;
+                icon = phone;
+                alt = "Phone";
+              }
+
+              return (
+                <motion.a
+                  key={index}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-14 h-14 p-2 rounded-full shadow-lg transition transform duration-300 hover:scale-110"
+                  whileHover={{ scale: 1.1 }}
+                >
+                  <Image
+                    src={icon}
+                    alt={`${alt} Icon`}
+                    className="object-contain"
+                    width={40}
+                    height={40}
+                  />
+                </motion.a>
+              );
+            })}
           </motion.div>
+
+
         </motion.section>
       </div>
     </main>
