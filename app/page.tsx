@@ -50,8 +50,8 @@ export default function Home() {
             <Image
               src={profile}
               alt="Ye Htet Aung's profile image"
-              width={180}
-              height={180}
+              width={280}
+              height={280}
               className=" rounded-3xl border-4 mb-5"
             />
           </motion.div>
