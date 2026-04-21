@@ -1,6 +1,6 @@
 "use client"
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import profile from "../public/me.png";
 import phone from '../public/phone.png';
 import github from '../public/github.svg';
@@ -9,7 +9,7 @@ import gmail from '../public/gmail.webp';
 import { useState } from "react";
 
 // Animation Variants
-const container = {
+const container:Variants = {
   hidden: {},
   visible: {
     transition: {
@@ -18,7 +18,7 @@ const container = {
   },
 };
 
-const fadeInUp = {
+const fadeInUp:Variants = {
   hidden: { opacity: 0, y: 40 },
   visible: {
     opacity: 1,
@@ -32,7 +32,7 @@ export default function Home() {
 
   const links = ['https://github.com/yehtetaung4466', 'https://www.facebook.com/ye.htet.aung.546389', 'yehtet804p@gmail.com', '+959427900982'];
   return (
-    <main className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-gray-100 text-gray-800 font-sans selection:bg-indigo-200">
+    <main className="min-h-screen bg-linear-to-br from-white via-gray-50 to-gray-100 text-gray-800 font-sans selection:bg-indigo-200">
       <div className="container mx-auto px-6 py-16">
         {/* Header Section */}
         <motion.header
@@ -43,7 +43,7 @@ export default function Home() {
           variants={container}
         >
           <motion.div
-            className="flex-shrink-0"
+            className="shrink-0"
             variants={fadeInUp}
             whileHover={{ scale: 1.1 }}
           >
